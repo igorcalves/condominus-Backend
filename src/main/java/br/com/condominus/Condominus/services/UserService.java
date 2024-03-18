@@ -1,4 +1,4 @@
-package br.com.condominus.Condominus;
+package br.com.condominus.Condominus.services;
 
 import br.com.condominus.Condominus.domain.User;
 import br.com.condominus.Condominus.repositories.UserRepository;
