@@ -1,13 +1,13 @@
-package br.com.condominus.artfactCondominus;
+package br.com.condominus.Condominus;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ArtfactCondominusApplication {
+public class CondominusApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ArtfactCondominusApplication.class, args);
+		SpringApplication.run(CondominusApplication.class, args);
 	}
 
 }

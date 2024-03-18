@@ -1,4 +1,4 @@
-package br.com.condominus.artfactCondominus.domain.enums;
+package br.com.condominus.Condominus.domain.enums;
 
 public enum AreasForReservations {
 

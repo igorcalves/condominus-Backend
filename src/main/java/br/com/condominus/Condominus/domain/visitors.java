@@ -1,4 +1,4 @@
-package br.com.condominus.artfactCondominus.domain;
+package br.com.condominus.Condominus.domain;
 
 import jakarta.persistence.*;
 import lombok.*;

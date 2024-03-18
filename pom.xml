@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.condominus</groupId>
-	<artifactId>artfactCondominus</artifactId>
+	<artifactId>Condominus</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>artfactCondominus</name>
+	<name>Condominus</name>
 	<description>project for university Uninove</description>
 	<properties>
 		<java.version>17</java.version>

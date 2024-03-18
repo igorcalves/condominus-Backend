@@ -1,6 +1,6 @@
-package br.com.condominus.artfactCondominus.domain;
+package br.com.condominus.Condominus.domain;
 
-import br.com.condominus.artfactCondominus.domain.enums.AreasForReservations;
+import br.com.condominus.Condominus.domain.enums.AreasForReservations;
 import jakarta.persistence.*;
 import lombok.*;
 
