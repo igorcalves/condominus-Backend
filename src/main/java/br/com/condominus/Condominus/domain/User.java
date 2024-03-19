@@ -40,7 +40,7 @@ public class User {
     private LocalDate birthDay;
     @Column(nullable = false)
     private BigDecimal condominiumPrice;
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true)
     private int apartmentNumber;
     private Boolean enabled = true;
 
