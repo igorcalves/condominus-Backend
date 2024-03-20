@@ -1,6 +1,7 @@
 package br.com.condominus.Condominus.services;
 
 import br.com.condominus.Condominus.domain.User;
+import br.com.condominus.Condominus.domain.core.regex.ValidationsRegex;
 import br.com.condominus.Condominus.domain.dto.UserDTO;
 import br.com.condominus.Condominus.exceptions.exceptionModel.UserAlreadyExistsException;
 import br.com.condominus.Condominus.exceptions.exceptionModel.UserNotFoundException;
@@ -17,14 +18,18 @@ import java.util.List;
 public class UserService {
 
     @Autowired
+    private ValidationsRegex validation;
+
+    @Autowired
     private UserRepository repository;
     public UserDTO createUser(User user){
         try {
             repository.save(user);
             return ModelMapperConverter.parseObject(user,UserDTO.class);
         }catch (DataIntegrityViolationException e){
-            throw new UserAlreadyExistsException("Você está tentando inserir dados repetidos");
+            throw new UserAlreadyExistsException("Você está tentando inserir dados repetidos" );
         }
+
     }
     public List<UserDTO> findAll(){
         return ModelMapperConverter.parseListObjects(repository.findAll(),UserDTO.class);
