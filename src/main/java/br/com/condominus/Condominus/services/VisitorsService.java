@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,13 +50,30 @@ public class VisitorsService {
     }
 
     
-    public List<VisitorsDTO> findAllUsers(String userCpf){
+    public List<VisitorsDTO> findAllVisitors(String userCpf){
         User user = userRepository.findByCpf(userCpf);
 
         if(user!=null){
             return visitorsrepository.findAllVisitors(user.getId());
         }
         throw new UserNotFoundException("usuario Não encontrado");
+    }
+
+
+    public String deleteVisitorByCpf(String cpf) {
+        Visitors entity = visitorsrepository.findByCpf(cpf);
+
+        if(entity !=null){
+            visitorsrepository.delete(entity);
+            return "A pessoa " + entity.getName() + " não faz mais parte da lista de visitantes";
+        }else{
+            throw new UserNotFoundException("O cpf não corresponde a nenhum visitante");
+        }
+
+
+            
+        
+
     }
  
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,10 +26,20 @@ public class VisitorsController {
     public ResponseEntity<String> createVisitorByCpfUser(@RequestBody VisitorsDTO data){
         return ResponseEntity.ok(service.createVisitorByCpfUser(data));
     }
+    
 
     @GetMapping
     public ResponseEntity<List<VisitorsDTO>> findAllVisitors(@RequestBody CpfDTO data){
-       return  ResponseEntity.ok(service.findAllUsers(data.cpf()));
+       return  ResponseEntity.ok(service.findAllVisitors(data.cpf()));
+    }
+
+     
+    
+
+
+    @DeleteMapping
+    public ResponseEntity<String> deleteVisitorById(@RequestBody CpfDTO data){
+        return ResponseEntity.ok(service.deleteVisitorByCpf(data.cpf()));
     }
     
 }
