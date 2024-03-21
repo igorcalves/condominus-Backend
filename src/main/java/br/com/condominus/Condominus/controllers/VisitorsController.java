@@ -29,8 +29,8 @@ public class VisitorsController {
     
 
     @GetMapping
-    public ResponseEntity<List<VisitorsDTO>> findAllVisitors(@RequestBody CpfDTO data){
-       return  ResponseEntity.ok(service.findAllVisitors(data.cpf()));
+    public ResponseEntity<List<VisitorsDTO>> findAllVisitorsByCpfUser(@RequestBody CpfDTO data){
+       return  ResponseEntity.ok(service.findAllVisitorsByCpfUser(data.cpf()));
     }
 
      

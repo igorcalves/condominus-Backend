@@ -50,7 +50,7 @@ public class VisitorsService {
     }
 
     
-    public List<VisitorsDTO> findAllVisitors(String userCpf){
+    public List<VisitorsDTO> findAllVisitorsByCpfUser(String userCpf){
         User user = userRepository.findByCpf(userCpf);
 
         if(user!=null){
