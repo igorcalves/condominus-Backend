@@ -7,7 +7,6 @@ import lombok.*;
 
 import java.time.LocalDate;
 
-import br.com.condominus.Condominus.domain.dto.VisitorsCreateDTO;
 import br.com.condominus.Condominus.domain.dto.VisitorsDTO;
 
 @Getter

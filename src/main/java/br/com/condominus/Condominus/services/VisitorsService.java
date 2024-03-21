@@ -13,7 +13,6 @@ import br.com.condominus.Condominus.domain.User;
 import br.com.condominus.Condominus.domain.Visitors;
 import br.com.condominus.Condominus.domain.dto.CpfDTO;
 import br.com.condominus.Condominus.domain.dto.UserDTO;
-import br.com.condominus.Condominus.domain.dto.VisitorsCreateDTO;
 import br.com.condominus.Condominus.domain.dto.VisitorsDTO;
 import br.com.condominus.Condominus.exceptions.exceptionModel.UserAlreadyExistsException;
 import br.com.condominus.Condominus.exceptions.exceptionModel.UserNotFoundException;
@@ -32,7 +31,7 @@ public class VisitorsService {
     @Autowired
     private UserRepository userRepository;
 
-    public String createVisitorByCpfUser(VisitorsCreateDTO data){
+    public String createVisitorByCpfUser(VisitorsDTO data){
         User user = userRepository.findByCpf(data.getCpfUser());
 
         if(user != null){

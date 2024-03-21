@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.condominus.Condominus.domain.dto.CpfDTO;
-import br.com.condominus.Condominus.domain.dto.VisitorsCreateDTO;
 import br.com.condominus.Condominus.domain.dto.VisitorsDTO;
 import br.com.condominus.Condominus.services.VisitorsService;
 
@@ -23,7 +22,7 @@ public class VisitorsController {
     private VisitorsService service;
 
     @PostMapping
-    public ResponseEntity<String> createVisitorByCpfUser(@RequestBody VisitorsCreateDTO data){
+    public ResponseEntity<String> createVisitorByCpfUser(@RequestBody VisitorsDTO data){
         return ResponseEntity.ok(service.createVisitorByCpfUser(data));
     }
 
