@@ -63,7 +63,7 @@ public class User {
 
     @Column(nullable = false, unique = true)
     @NotNull(message = "O campo 'apartmentNumber' é obrigatório")
-    private int apartmentNumber;
+    private String apartmentNumber;
 
     private Boolean enabled = true;
 

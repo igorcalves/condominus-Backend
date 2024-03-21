@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Table(name = "VISITORS")
 @EqualsAndHashCode(of="id")
 @Entity
-public class visitors {
+public class Visitors {
 
     @Id()
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -20,14 +20,16 @@ public class visitors {
 
     private String name;
     @Column(nullable = false)
-    private int age;
+    private LocalDate birthDay;
     @Column(nullable = false)
     private String phone;
     @Column(nullable = false,unique = true)
     private String cpf;
+    @Column(nullable = false)
+    private String email;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_user", referencedColumnName = "id")
     private User user;
     @Column(nullable = false)
-    LocalDate registrationDate;
+    private LocalDate registrationDate;
 }

@@ -21,5 +21,5 @@ public class UserDTO {
     private String email;
     private LocalDate birthDay;
     private BigDecimal condominiumPrice;
-    private int apartmentNumber;
+    private String apartmentNumber;
 }
