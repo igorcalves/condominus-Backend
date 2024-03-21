@@ -22,10 +22,10 @@ public class UserService {
 
     @Autowired
     private UserRepository repository;
-    public UserDTO createUser(User user){
+    public String createUser(User user){
         try {
             repository.save(user);
-            return ModelMapperConverter.parseObject(user,UserDTO.class);
+            return "Usuario Criado com sucesso";
         }catch (DataIntegrityViolationException e){
             throw new UserAlreadyExistsException("Você está tentando inserir dados repetidos" );
         }

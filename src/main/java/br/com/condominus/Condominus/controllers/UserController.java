@@ -20,7 +20,7 @@ public class UserController {
     private UserService service;
 
     @PostMapping
-    public ResponseEntity<UserDTO> createUser(@RequestBody @Validated User user){
+    public ResponseEntity<String> createUser(@RequestBody @Validated User user){
 
     return ResponseEntity.ok().body(service.createUser(user));
     }

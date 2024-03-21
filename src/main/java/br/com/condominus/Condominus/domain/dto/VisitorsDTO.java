@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
-
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,5 +16,6 @@ public class VisitorsDTO {
     private String cpf;
     private LocalDate birthDay;
     private String email;
-    private LocalDate registrationDate;  
+    private LocalDate registrationDate;
+    private String phone;  
 }
