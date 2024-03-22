@@ -54,7 +54,7 @@ public class VisitorsService {
         User user = userRepository.findByCpf(userCpf);
 
         if(user!=null){
-            return visitorsrepository.findAllVisitors(user.getId());
+            return visitorsrepository.findAllVisitors(user.getId(),userCpf);
         }
         throw new UserNotFoundException("usuario Não encontrado");
     }

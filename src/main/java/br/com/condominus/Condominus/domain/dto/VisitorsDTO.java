@@ -18,5 +18,5 @@ public class VisitorsDTO {
     private String email;
     private LocalDate registrationDate;
     private String phone;
-    private String cpfUser;  
+    private String cpfUser;
 }

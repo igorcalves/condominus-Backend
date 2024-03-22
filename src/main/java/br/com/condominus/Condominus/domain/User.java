@@ -28,10 +28,6 @@ public class User {
     private String name;
 
     @Column(nullable = false)
-    @NotNull(message = "O campo 'address' é obrigatório")
-    private String address;
-
-    @Column(nullable = false)
     @NotNull(message = "O campo 'phone' é obrigatório")
     private String phone;
 
@@ -71,7 +67,6 @@ public class User {
     public User(UserDTO dTO, User oldUser){
         this.id = oldUser.id;
         this.name = dTO.getName();
-        this.address = dTO.getAddress();
         this.phone = dTO.getPhone();
         this.cpf = oldUser.getCpf();
         this.role = oldUser.getRole();
