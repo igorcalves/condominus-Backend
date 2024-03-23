@@ -10,10 +10,10 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "USERS")
 @EqualsAndHashCode(of="id")
@@ -24,44 +24,60 @@ public class User {
     @Setter(AccessLevel.NONE)
     private String id;
     @Column(nullable = false)
-    @NotNull(message = "O campo 'name' é obrigatório")
     private String name;
 
     @Column(nullable = false)
-    @NotNull(message = "O campo 'phone' é obrigatório")
     private String phone;
 
     @Column(nullable = false, unique = true)
-    @NotNull(message = "O campo 'cpf' é obrigatório")
     private String cpf;
 
     @Column(nullable = false)
-    @NotNull(message = "O campo 'role' é obrigatório")
     private Role role;
 
     @Column(nullable = false)
-    @NotNull(message = "O campo 'password' é obrigatório")
     private String password;
 
     @Column(nullable = false, unique = true)
-    @NotNull(message = "O campo 'email' é obrigatório")
-    @Email(message = "Formato de email inválido")
     private String email;
 
     @Column(nullable = false)
-    @NotNull(message = "O campo 'birthDay' é obrigatório")
     private LocalDate birthDay;
 
     @Column(nullable = false)
-    @NotNull(message = "O campo 'condominiumPrice' é obrigatório")
-    @DecimalMin(value = "0.01", message = "O valor mínimo permitido é 0.01")
+
     private BigDecimal condominiumPrice;
 
     @Column(nullable = false, unique = true)
-    @NotNull(message = "O campo 'apartmentNumber' é obrigatório")
     private String apartmentNumber;
 
     private Boolean enabled = true;
+
+
+    public User(String id, @NotNull(message = "O campo 'name' é obrigatório") String name,
+            @NotNull(message = "O campo 'phone' é obrigatório") String phone,
+            @NotNull(message = "O campo 'cpf' é obrigatório") String cpf,
+            @NotNull(message = "O campo 'role' é obrigatório") Role role,
+            @NotNull(message = "O campo 'password' é obrigatório") String password,
+            @NotNull(message = "O campo 'email' é obrigatório") @Email(message = "Formato de email inválido") String email,
+            @NotNull(message = "O campo 'birthDay' é obrigatório") LocalDate birthDay,
+            @NotNull(message = "O campo 'condominiumPrice' é obrigatório") @DecimalMin(value = "0.01", message = "O valor mínimo permitido é 0.01") BigDecimal condominiumPrice,
+            @NotNull(message = "O campo 'apartmentNumber' é obrigatório") String apartmentNumber, Boolean enabled) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.cpf = cpf;
+        this.role = role;
+        this.password = password;
+        this.email = email;
+        this.birthDay = birthDay;
+        this.condominiumPrice = condominiumPrice;
+        this.apartmentNumber = apartmentNumber;
+        this.enabled = enabled;
+    }
+
+
+
 
 
     public User(UserDTO dTO, User oldUser){

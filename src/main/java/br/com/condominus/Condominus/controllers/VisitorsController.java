@@ -33,9 +33,6 @@ public class VisitorsController {
        return  ResponseEntity.ok(service.findAllVisitorsByCpfUser(data.cpf()));
     }
 
-     
-    
-
 
     @DeleteMapping
     public ResponseEntity<String> deleteVisitorById(@RequestBody CpfDTO data){

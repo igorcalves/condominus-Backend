@@ -1,10 +1,11 @@
 package br.com.condominus.Condominus.domain;
 
-import br.com.condominus.Condominus.domain.enums.AreasForReservations;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -19,13 +20,12 @@ public class Reservations {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     @Column(nullable = false)
-    private LocalDate openingTime;
+    private String name;
     @Column(nullable = false)
-    private LocalDate closingTime;
+    private LocalTime openingTime;
     @Column(nullable = false)
-    private AreasForReservations reservationArea;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_user", referencedColumnName = "id")
-    private User user;
+    private LocalTime closingTime;
+
+    
 
 }
