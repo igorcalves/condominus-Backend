@@ -17,6 +17,7 @@ import br.com.condominus.Condominus.domain.dto.UserDTO;
 import br.com.condominus.Condominus.domain.dto.VisitorsDTO;
 import br.com.condominus.Condominus.exceptions.exceptionModel.UserAlreadyExistsException;
 import br.com.condominus.Condominus.exceptions.exceptionModel.UserNotFoundException;
+import br.com.condominus.Condominus.mapper.ModelMapperConverter;
 import br.com.condominus.Condominus.repositories.UserRepository;
 import br.com.condominus.Condominus.repositories.VisitorsRepository;
 
@@ -69,11 +70,13 @@ public class VisitorsService {
         }else{
             throw new UserNotFoundException("O cpf não corresponde a nenhum visitante");
         }
+    }
 
-
-            
+    public List<VisitorsDTO> findVisitorByName(String name){
+        List<Visitors> entity = visitorsrepository.findVisitorsByName(name);
+        List<VisitorsDTO> data = ModelMapperConverter.parseListObjects(entity,VisitorsDTO.class);
+        return data;
         
-
     }
  
 

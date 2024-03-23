@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.condominus.Condominus.domain.dto.CpfDTO;
@@ -31,6 +32,11 @@ public class VisitorsController {
     @GetMapping
     public ResponseEntity<List<VisitorsDTO>> findAllVisitorsByCpfUser(@RequestBody CpfDTO data){
        return  ResponseEntity.ok(service.findAllVisitorsByCpfUser(data.cpf()));
+    }
+
+    @GetMapping("/name")
+    public ResponseEntity<List<VisitorsDTO>> findVisistorsByName(@RequestParam String name){
+       return  ResponseEntity.ok(service.findVisitorByName(name));
     }
 
 
