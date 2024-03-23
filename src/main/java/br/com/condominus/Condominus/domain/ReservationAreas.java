@@ -11,10 +11,10 @@ import java.time.LocalTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "reservations")
+@Table(name = "Reservation_Areas")
 @EqualsAndHashCode(of="id")
 @Entity
-public class Reservations {
+public class ReservationAreas {
 
     @Id()
     @GeneratedValue(strategy = GenerationType.UUID)
