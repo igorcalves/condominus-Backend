@@ -90,7 +90,7 @@ public class VisitorsService {
             visitorsrepository.save(newEntity);
             return newEntity.getName() + " seu cadastro foi atualizado";
            } catch (DataIntegrityViolationException e) {
-            throw new EmailAlreadyExistsException("Você tentou cadastrar um email já existentew1");
+            throw new EmailAlreadyExistsException("Você tentou cadastrar um email já existente");
            }
 
         }
