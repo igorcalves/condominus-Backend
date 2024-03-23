@@ -1,5 +1,6 @@
 package br.com.condominus.Condominus.exceptions;
 
+import br.com.condominus.Condominus.exceptions.exceptionModel.EmailAlreadyExistsException;
 import br.com.condominus.Condominus.exceptions.exceptionModel.ExceptionResponse;
 import br.com.condominus.Condominus.exceptions.exceptionModel.UserAlreadyExistsException;
 import br.com.condominus.Condominus.exceptions.exceptionModel.UserNotFoundException;
@@ -34,6 +35,13 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(UserNotFoundException.class)
     public final ResponseEntity<ExceptionResponse> handlerUserNotFound(Exception ex, WebRequest request){
+        ExceptionResponse exceptionResponse =
+                new ExceptionResponse(LocalDateTime.now(),ex.getMessage(),request.getDescription(false));
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(EmailAlreadyExistsException.class)
+    public final ResponseEntity<ExceptionResponse> emailAlreadyExistsException(Exception ex, WebRequest request){
         ExceptionResponse exceptionResponse =
                 new ExceptionResponse(LocalDateTime.now(),ex.getMessage(),request.getDescription(false));
         return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);

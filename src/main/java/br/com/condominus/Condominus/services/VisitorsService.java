@@ -15,6 +15,7 @@ import br.com.condominus.Condominus.domain.Visitors;
 import br.com.condominus.Condominus.domain.dto.CpfDTO;
 import br.com.condominus.Condominus.domain.dto.UserDTO;
 import br.com.condominus.Condominus.domain.dto.VisitorsDTO;
+import br.com.condominus.Condominus.exceptions.exceptionModel.EmailAlreadyExistsException;
 import br.com.condominus.Condominus.exceptions.exceptionModel.UserAlreadyExistsException;
 import br.com.condominus.Condominus.exceptions.exceptionModel.UserNotFoundException;
 import br.com.condominus.Condominus.mapper.ModelMapperConverter;
@@ -77,6 +78,25 @@ public class VisitorsService {
         List<VisitorsDTO> data = ModelMapperConverter.parseListObjects(entity,VisitorsDTO.class);
         return data;
         
+    }
+
+
+    public String updateVisitorByCpf(VisitorsDTO data) {
+        Visitors entity = visitorsrepository.findByCpf(data.getCpf());
+
+        if(entity != null){
+           try {
+            Visitors newEntity = new Visitors(data, entity,userRepository.findByCpf(data.getCpfUser()));
+            visitorsrepository.save(newEntity);
+            return newEntity.getName() + " seu cadastro foi atualizado";
+           } catch (DataIntegrityViolationException e) {
+            throw new EmailAlreadyExistsException("Você tentou cadastrar um email já existentew1");
+           }
+
+        }
+
+        throw new UserNotFoundException("O cpf não corresponde a nenhum visitante");
+       
     }
  
 

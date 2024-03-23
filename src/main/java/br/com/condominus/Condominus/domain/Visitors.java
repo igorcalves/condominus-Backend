@@ -62,4 +62,16 @@ public Visitors (VisitorsDTO data, User user){
     
 }
 
+public Visitors (VisitorsDTO newData,Visitors oldData , User user){
+    this.id = oldData.id;
+    this.name = newData.getName();
+    this.birthDay = newData.getBirthDay();
+    this.cpf = oldData.getCpf();
+    this.email = newData.getEmail();
+    this.phone = newData.getPhone();
+    this.registrationDate = LocalDate.now();
+    this.user = user;
+    
+}
+
 }
