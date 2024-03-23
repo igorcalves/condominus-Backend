@@ -19,10 +19,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "User_Reservation")
+@Table(name = "User_Reservation_Areas")
 @EqualsAndHashCode(of="id")
 @Entity
-public class User_Reservations {
+public class UserReservationsAreas {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
