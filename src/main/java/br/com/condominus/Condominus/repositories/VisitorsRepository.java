@@ -16,11 +16,11 @@ public interface VisitorsRepository extends JpaRepository<Visitors,String> {
 
     Visitors findByCpf(String cpf);
 
-    @Query(value = "SELECT new br.com.condominus.Condominus.domain.dto.VisitorsDTO(v.name,v.cpf,v.birthDay,v.email,v.registrationDate,v.phone,:cpfUser)FROM Visitors v WHERE user.id =:id ")
-    List<VisitorsDTO> findAllVisitors(@Param("id") String id,@Param("cpfUser") String cpfUser);
+    @Query(value = "SELECT v FROM Visitors v WHERE user.id =:id ")
+    List<Visitors> findAllVisitors(@Param("id") String id);
 
 
-    @Query(value ="SELECT v FROM Visitors v WHERE v.name LIKE LOWER(CONCAT('%',:name,'%'))" )
-    List<Visitors> findVisitorsByName(@Param("name")String name);
+    @Query("SELECT v FROM Visitors v WHERE LOWER(v.name) LIKE LOWER(CONCAT('%', :name, '%'))")
+    List<Visitors> findVisitorsByName(@Param("name") String name);
 }
 

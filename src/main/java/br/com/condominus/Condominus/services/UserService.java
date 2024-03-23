@@ -42,6 +42,15 @@ public class UserService {
        throw  new UserNotFoundException("Usuario Não Encontrado");
     }
 
+    public List<UserDTO> findByName(String name){
+        List<User> entity = repository.findUserByName(name);
+        if(entity != null){
+            return ModelMapperConverter.parseListObjects(entity, UserDTO.class);
+        }
+       throw  new UserNotFoundException("Usuario Não Encontrado");
+
+    }
+
     public String updateUserByCpf(UserDTO userDTO){
         User entity = repository.findByCpf(userDTO.getCpf());
         if(entity != null){

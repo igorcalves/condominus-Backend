@@ -55,7 +55,7 @@ public class VisitorsService {
         User user = userRepository.findByCpf(userCpf);
 
         if(user!=null){
-            return visitorsrepository.findAllVisitors(user.getId(),userCpf);
+            return ModelMapperConverter.parseListObjects(visitorsrepository.findAllVisitors(user.getId()), VisitorsDTO.class);
         }
         throw new UserNotFoundException("usuario Não encontrado");
     }

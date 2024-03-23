@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
@@ -20,6 +21,9 @@ public interface UserRepository extends JpaRepository<User, String> {
     @Modifying
     @Query(value = "UPDATE User u SET u.enabled = true where u.cpf =:cpf")
     void enableUser(@Param("cpf") String cpf);
+
+    @Query(value = "SELECT u FROM User u WHERE LOWER(u.name) LIKE LOWER(CONCAT('%', :name ,'%'))  ")
+    List<User> findUserByName(String name);
 
 
 }

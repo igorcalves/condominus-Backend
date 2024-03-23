@@ -35,6 +35,10 @@ public class UserController {
         return  ResponseEntity.ok(service.findByCPF(data.cpf()));
     }
 
+    @GetMapping("/name")
+    public ResponseEntity<List<UserDTO>> findUserByName(@RequestParam String name){
+        return  ResponseEntity.ok(service.findByName(name));
+    }
     @PutMapping("/disable")
             public ResponseEntity<String> disableUserByCpf(@RequestBody CpfDTO data){
         return ResponseEntity.ok(service.disableUserByCpf(data.cpf()));
