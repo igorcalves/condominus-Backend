@@ -45,6 +45,7 @@ private String email;
 
 @ManyToOne(fetch = FetchType.LAZY)
 @JoinColumn(name = "id_user", referencedColumnName = "id")
+@NotNull(message = "O campo 'user' é obrigatório")
 private User user;
 
 @Column(nullable = false)

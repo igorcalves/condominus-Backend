@@ -4,7 +4,6 @@ import br.com.condominus.Condominus.domain.dto.CpfDTO;
 import br.com.condominus.Condominus.domain.dto.UserDTO;
 import br.com.condominus.Condominus.services.UserService;
 import br.com.condominus.Condominus.domain.User;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
