@@ -29,15 +29,13 @@ public class VisitorsService {
     @Autowired
     private VisitorsRepository visitorsrepository;
 
-    
 
     @Autowired
     private UserRepository userRepository;
 
-    public String createVisitorByCpfUser(VisitorsDTO data){
-        User user = userRepository.findByCpf(data.getCpfUser());
+    public String createVisitorByCpfUser(VisitorsDTO data) {
+        final User user = userRepository.findByCpf(data.getCpfUser()).orElseThrow(() -> new ResourceNotFound("Cpf Não encontrado"));
 
-        if(user != null){
             Visitors entity = new Visitors(data, user);
             try {
                 visitorsrepository.save(entity);
@@ -45,32 +43,21 @@ public class VisitorsService {
                 throw new UserAlreadyExistsException("Visitante ja cadastrado");
             }
             return "Visitante Cadastrado";
-        }
-        throw new ResourceNotFound("Não existe morador cadastrado para esse cpf");
-        
 
     }
 
+
     
     public List<VisitorsDTO> findAllVisitorsByCpfUser(String userCpf){
-        User user = userRepository.findByCpf(userCpf);
-
-        if(user!=null){
-            return ModelMapperConverter.parseListObjects(visitorsrepository.findAllVisitors(user.getId()), VisitorsDTO.class);
-        }
-        throw new ResourceNotFound("usuario Não encontrado");
+        final User user = userRepository.findByCpf(userCpf).orElseThrow(() -> new ResourceNotFound("Cpf Não encontrado"));
+        return ModelMapperConverter.parseListObjects(visitorsrepository.findAllVisitors(user.getId()), VisitorsDTO.class);
     }
 
 
     public String deleteVisitorByCpf(String cpf) {
-        Visitors entity = visitorsrepository.findByCpf(cpf);
-
-        if(entity !=null){
-            visitorsrepository.delete(entity);
-            return "A pessoa " + entity.getName() + " não faz mais parte da lista de visitantes";
-        }else{
-            throw new ResourceNotFound("O cpf não corresponde a nenhum visitante");
-        }
+        Visitors entity = visitorsrepository.findByCpf(cpf).orElseThrow(() -> new ResourceNotFound("O cpf não corresponde a nenhum visitante"));
+        visitorsrepository.delete(entity);
+        return "A pessoa " + entity.getName() + " não faz mais parte da lista de visitantes";
     }
 
     public List<VisitorsDTO> findVisitorByName(String name){
@@ -82,20 +69,15 @@ public class VisitorsService {
 
 
     public String updateVisitorByCpf(VisitorsDTO data) {
-        Visitors entity = visitorsrepository.findByCpf(data.getCpf());
-
-        if(entity != null){
+        Visitors entity = visitorsrepository.findByCpf(data.getCpfUser()).orElseThrow(() -> new ResourceNotFound("O cpf não corresponde a nenhum visitante"));
+        User user =userRepository.findByCpf(data.getCpfUser()).orElseThrow(() ->  new ResourceNotFound("Cpf Não encontrado"));
            try {
-            Visitors newEntity = new Visitors(data, entity,userRepository.findByCpf(data.getCpfUser()));
+            Visitors newEntity = new Visitors(data, entity,user);
             visitorsrepository.save(newEntity);
             return newEntity.getName() + " seu cadastro foi atualizado";
            } catch (DataIntegrityViolationException e) {
             throw new EmailAlreadyExistsException("Você tentou cadastrar um email já existente");
            }
-
-        }
-
-        throw new ResourceNotFound("O cpf não corresponde a nenhum visitante");
        
     }
  

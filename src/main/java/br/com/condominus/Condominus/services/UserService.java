@@ -17,8 +17,7 @@ import java.util.List;
 @Service
 public class UserService {
 
-    @Autowired
-    private ValidationsRegex validation;
+
 
     @Autowired
     private UserRepository repository;
@@ -35,15 +34,12 @@ public class UserService {
         return ModelMapperConverter.parseListObjects(repository.findAll(),UserDTO.class);
     }
     public UserDTO findByCPF(String cpf) {
-        User user = repository.findByCpf(cpf);
-        if(user!=null){
-            return ModelMapperConverter.parseObject(user,UserDTO.class);
-        }
-       throw  new ResourceNotFound("Usuario Não Encontrado");
+            final User entity = repository.findByCpf(cpf).orElseThrow(()-> new ResourceNotFound("Usuario não econtrado"));
+            return ModelMapperConverter.parseObject(entity,UserDTO.class);
     }
 
     public List<UserDTO> findByName(String name){
-        List<User> entity = repository.findUserByName(name);
+        final List<User> entity = repository.findUserByName(name);
         if(entity != null){
             return ModelMapperConverter.parseListObjects(entity, UserDTO.class);
         }
@@ -52,33 +48,26 @@ public class UserService {
     }
 
     public String updateUserByCpf(UserDTO userDTO){
-        User entity = repository.findByCpf(userDTO.getCpf());
-        if(entity != null){
+            User entity = repository.findByCpf(userDTO.getCpf()).orElseThrow(()-> new ResourceNotFound("Usuario não econtrado"));
             User newUser = new User(userDTO,entity);
             repository.save(newUser);
             return  newUser.getName() + " seu cadastro foi atualizado";
-        }
-        throw  new ResourceNotFound("Usuario não econtrado");
+
     }
 
     @Transactional
     public String disableUserByCpf(String cpf){
-        final User entity = repository.findByCpf(cpf);
-        if(entity != null) {
-            repository.disableUser(cpf);
-            return "Usuario Desabilitado";
-        }
-        throw  new ResourceNotFound("usuario Não Encontrado");
+        final User entity = repository.findByCpf(cpf).orElseThrow(()-> new ResourceNotFound("Usuario não econtrado"));
+        repository.disableUser(cpf);
+        return "Usuario Desabilitado";
     }
 
     @Transactional
     public String enableUserByCpf(String cpf){
-        final User entity = repository.findByCpf(cpf);
-        if(entity != null){
-            repository.enableUser(cpf);
-            return "Usuario Habilitado";
-        }
-            throw  new ResourceNotFound("usuario Não Encontrado");
+        User entity = repository.findByCpf(cpf).orElseThrow(()-> new ResourceNotFound("Usuario não econtrado"));
+        repository.enableUser(cpf);
+        return "Usuario Habilitado";
+
     }
 
 

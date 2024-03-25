@@ -31,9 +31,8 @@ public class UserReservationAreaService {
 
 
     public String createReservation(UserReservationAreaDTO data){
-        User entity = userRepository.findByCpf(data.cpf());
+        User entity = userRepository.findByCpf(data.cpf()).orElseThrow(()-> new ResourceNotFound("Cpf Não Cadastrado"));
         Areas area = areasRepository.findById(data.areaId()).orElseThrow(()-> new ResourceNotFound("o id da area não existe"));
-        if(entity ==null) throw new ResourceNotFound("Cpf Não Encontrado");
         UserReservationsAreas reservation = new UserReservationsAreas(entity,area,data.startOfScheduling(),data.endOfScheduling());
         try{
             reservationRepository.save(reservation);
@@ -49,8 +48,7 @@ public class UserReservationAreaService {
     }
 
     public List<ReservationReturn> findAllReservations(String cpf){
-        User entity = userRepository.findByCpf(cpf);
-        if(entity ==null) throw new ResourceNotFound("Cpf Não Encontrado");
+        User entity = userRepository.findByCpf(cpf).orElseThrow(()-> new ResourceNotFound("Cpf Não Cadastrado"));
         return reservationRepository.findAllReservationsById(entity.getId());
     }
 

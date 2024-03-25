@@ -2,6 +2,7 @@ package br.com.condominus.Condominus.repositories;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,7 +15,7 @@ import br.com.condominus.Condominus.domain.dto.VisitorsDTO;
 @Repository
 public interface VisitorsRepository extends JpaRepository<Visitors,String> {
 
-    Visitors findByCpf(String cpf);
+    Optional<Visitors> findByCpf(String cpf);
 
     @Query(value = "SELECT v FROM Visitors v WHERE user.id =:id ")
     List<Visitors> findAllVisitors(@Param("id") String id);

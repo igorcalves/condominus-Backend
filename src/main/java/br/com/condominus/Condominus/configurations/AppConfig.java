@@ -1,4 +1,4 @@
-package br.com.condominus.Condominus.Configurations;
+package br.com.condominus.Condominus.configurations;
 
 import br.com.condominus.Condominus.domain.core.regex.ValidationsRegex;
 import org.springframework.context.annotation.Bean;
