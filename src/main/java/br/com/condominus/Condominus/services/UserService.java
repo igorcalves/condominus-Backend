@@ -4,7 +4,7 @@ import br.com.condominus.Condominus.domain.User;
 import br.com.condominus.Condominus.domain.core.regex.ValidationsRegex;
 import br.com.condominus.Condominus.domain.dto.UserDTO;
 import br.com.condominus.Condominus.exceptions.exceptionModel.UserAlreadyExistsException;
-import br.com.condominus.Condominus.exceptions.exceptionModel.UserNotFoundException;
+import br.com.condominus.Condominus.exceptions.exceptionModel.ResourceNotFound;
 import br.com.condominus.Condominus.mapper.ModelMapperConverter;
 import br.com.condominus.Condominus.repositories.UserRepository;
 import jakarta.transaction.Transactional;
@@ -39,7 +39,7 @@ public class UserService {
         if(user!=null){
             return ModelMapperConverter.parseObject(user,UserDTO.class);
         }
-       throw  new UserNotFoundException("Usuario Não Encontrado");
+       throw  new ResourceNotFound("Usuario Não Encontrado");
     }
 
     public List<UserDTO> findByName(String name){
@@ -47,7 +47,7 @@ public class UserService {
         if(entity != null){
             return ModelMapperConverter.parseListObjects(entity, UserDTO.class);
         }
-       throw  new UserNotFoundException("Usuario Não Encontrado");
+       throw  new ResourceNotFound("Usuario Não Encontrado");
 
     }
 
@@ -58,7 +58,7 @@ public class UserService {
             repository.save(newUser);
             return  newUser.getName() + " seu cadastro foi atualizado";
         }
-        throw  new UserNotFoundException("Usuario não econtrado");
+        throw  new ResourceNotFound("Usuario não econtrado");
     }
 
     @Transactional
@@ -68,7 +68,7 @@ public class UserService {
             repository.disableUser(cpf);
             return "Usuario Desabilitado";
         }
-        throw  new UserNotFoundException("usuario Não Encontrado");
+        throw  new ResourceNotFound("usuario Não Encontrado");
     }
 
     @Transactional
@@ -78,7 +78,7 @@ public class UserService {
             repository.enableUser(cpf);
             return "Usuario Habilitado";
         }
-            throw  new UserNotFoundException("usuario Não Encontrado");
+            throw  new ResourceNotFound("usuario Não Encontrado");
     }
 
 

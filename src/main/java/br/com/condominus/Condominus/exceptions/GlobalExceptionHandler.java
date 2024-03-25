@@ -3,7 +3,7 @@ package br.com.condominus.Condominus.exceptions;
 import br.com.condominus.Condominus.exceptions.exceptionModel.EmailAlreadyExistsException;
 import br.com.condominus.Condominus.exceptions.exceptionModel.ExceptionResponse;
 import br.com.condominus.Condominus.exceptions.exceptionModel.UserAlreadyExistsException;
-import br.com.condominus.Condominus.exceptions.exceptionModel.UserNotFoundException;
+import br.com.condominus.Condominus.exceptions.exceptionModel.ResourceNotFound;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -33,7 +33,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(exceptionResponse, HttpStatus.CONFLICT);
     }
 
-    @ExceptionHandler(UserNotFoundException.class)
+    @ExceptionHandler(ResourceNotFound.class)
     public final ResponseEntity<ExceptionResponse> handlerUserNotFound(Exception ex, WebRequest request){
         ExceptionResponse exceptionResponse =
                 new ExceptionResponse(LocalDateTime.now(),ex.getMessage(),request.getDescription(false));

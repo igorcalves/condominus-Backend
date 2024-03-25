@@ -9,15 +9,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
+import jakarta.validation.constraints.NotNull;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "User_Reservation_Areas")
 @EqualsAndHashCode(of="id")
@@ -33,10 +33,19 @@ public class UserReservationsAreas {
     @ManyToOne()
     @JoinColumn(name = "user_id")
     private User user;
-
     @ManyToOne()
     @JoinColumn(name = "reservation_id")
-    private ReservationAreas reservation;
+    private Areas area;
+
+    public UserReservationsAreas(@NotNull(message = "é necessario um morador para agendar um local")User user,
+                                @NotNull(message = "é necessario um local realizar um agendamento")Areas area,
+                                @NotNull(message = "O campo inicio do agendamento é obrigatorio")LocalDateTime startOfScheduling,
+                                @NotNull(message = "O campo fim do agendamento é obrigatorio")LocalDateTime endOfScheduling){
+        this.user = user;
+        this.area = area;
+        this.startOfScheduling = startOfScheduling;
+        this.endOfScheduling = endOfScheduling;
+    }
 
     
 }

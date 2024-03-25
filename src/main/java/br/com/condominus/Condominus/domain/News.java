@@ -2,12 +2,8 @@ package br.com.condominus.Condominus.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 @Table(name = "News")
 @EqualsAndHashCode(of="id")
 @Entity

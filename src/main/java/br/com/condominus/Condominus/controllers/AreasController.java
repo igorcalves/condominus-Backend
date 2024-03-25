@@ -9,21 +9,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.condominus.Condominus.domain.ReservationAreas;
-import br.com.condominus.Condominus.services.ReservationAreasService;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import br.com.condominus.Condominus.domain.Areas;
+import br.com.condominus.Condominus.services.AreasService;
 
 @RestController
-@RequestMapping("ra")
-public class ReservationAreasController {
+@RequestMapping("areas")
+public class AreasController {
 
     @Autowired
-    private ReservationAreasService service;
+    private AreasService service;
     
 
     @GetMapping
-    public ResponseEntity<List<ReservationAreas>> findAllReservationsAreas(){
-        return ResponseEntity.ok(service.findAllReservationsAreas());
+    public ResponseEntity<List<Areas>> findAllAreas(){
+        return ResponseEntity.ok(service.findAllAreas());
 
     }
 

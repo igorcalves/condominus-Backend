@@ -17,7 +17,7 @@ import br.com.condominus.Condominus.domain.dto.UserDTO;
 import br.com.condominus.Condominus.domain.dto.VisitorsDTO;
 import br.com.condominus.Condominus.exceptions.exceptionModel.EmailAlreadyExistsException;
 import br.com.condominus.Condominus.exceptions.exceptionModel.UserAlreadyExistsException;
-import br.com.condominus.Condominus.exceptions.exceptionModel.UserNotFoundException;
+import br.com.condominus.Condominus.exceptions.exceptionModel.ResourceNotFound;
 import br.com.condominus.Condominus.mapper.ModelMapperConverter;
 import br.com.condominus.Condominus.repositories.UserRepository;
 import br.com.condominus.Condominus.repositories.VisitorsRepository;
@@ -46,7 +46,7 @@ public class VisitorsService {
             }
             return "Visitante Cadastrado";
         }
-        throw new UserNotFoundException("Não existe morador cadastrado para esse cpf");
+        throw new ResourceNotFound("Não existe morador cadastrado para esse cpf");
         
 
     }
@@ -58,7 +58,7 @@ public class VisitorsService {
         if(user!=null){
             return ModelMapperConverter.parseListObjects(visitorsrepository.findAllVisitors(user.getId()), VisitorsDTO.class);
         }
-        throw new UserNotFoundException("usuario Não encontrado");
+        throw new ResourceNotFound("usuario Não encontrado");
     }
 
 
@@ -69,7 +69,7 @@ public class VisitorsService {
             visitorsrepository.delete(entity);
             return "A pessoa " + entity.getName() + " não faz mais parte da lista de visitantes";
         }else{
-            throw new UserNotFoundException("O cpf não corresponde a nenhum visitante");
+            throw new ResourceNotFound("O cpf não corresponde a nenhum visitante");
         }
     }
 
@@ -95,7 +95,7 @@ public class VisitorsService {
 
         }
 
-        throw new UserNotFoundException("O cpf não corresponde a nenhum visitante");
+        throw new ResourceNotFound("O cpf não corresponde a nenhum visitante");
        
     }
  

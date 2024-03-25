@@ -2,15 +2,10 @@ package br.com.condominus.Condominus.domain.dto;
 
 import java.time.LocalDate;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+
+@Data
 public class VisitorsDTO {
     private String name;
     private String cpf;

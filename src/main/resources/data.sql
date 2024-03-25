@@ -538,7 +538,7 @@ VALUES ('22dcd076-6aa2-4ae1-b241-2ec2b7946856', '71351682830', 'Olivia Moreira F
         'ManuelaD1547@live.com', '+55 (081) 2443-7588', '2022-06-12', '7c7b22e3-b70e-46ad-a97c-b5a8b8695afb');
 
 
-INSERT INTO RESERVATION_AREAS (ID,NAME, OPENING_TIME , CLOSING_TIME )VALUES
+INSERT INTO AREAS (ID,NAME, OPENING_TIME , CLOSING_TIME )VALUES
         (0,'Churrasqueira','18:00','22:00'),
         (1,'Piscina','10:00','18:00'),
         (2,'Area de trabalho','08:00','17:00'),

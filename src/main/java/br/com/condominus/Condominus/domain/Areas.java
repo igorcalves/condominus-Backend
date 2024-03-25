@@ -7,12 +7,12 @@ import java.time.LocalTime;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Reservation_Areas")
+@AllArgsConstructor
+@Table(name = "Areas")
 @EqualsAndHashCode(of="id")
 @Entity
-public class ReservationAreas {
+public class Areas {
 
     @Id()
     @GeneratedValue(strategy = GenerationType.IDENTITY)
