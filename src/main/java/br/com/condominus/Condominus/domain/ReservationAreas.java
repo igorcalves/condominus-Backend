@@ -15,8 +15,8 @@ import java.time.LocalTime;
 public class ReservationAreas {
 
     @Id()
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)

@@ -536,3 +536,12 @@ VALUES ('22dcd076-6aa2-4ae1-b241-2ec2b7946856', '71351682830', 'Olivia Moreira F
         'JoanaM1615@live.com', '11 1971-7619', '2022-08-10', '43aaa165-638f-4cce-b8fe-4be91d2b488c'),
        ('7d7d1cc6-4860-48f5-b5a9-bf0c79b1f948', '68437931509', 'Manuela da Conceição Cavalcanti', '1970-08-18',
         'ManuelaD1547@live.com', '+55 (081) 2443-7588', '2022-06-12', '7c7b22e3-b70e-46ad-a97c-b5a8b8695afb');
+
+
+INSERT INTO RESERVATION_AREAS (ID,NAME, OPENING_TIME , CLOSING_TIME )VALUES
+        (0,'Churrasqueira','18:00','22:00'),
+        (1,'Piscina','10:00','18:00'),
+        (2,'Area de trabalho','08:00','17:00'),
+        (3,'Academia','5:30','22:00'),
+        (4,'Sala de Jogos','14:00', '22:00'),
+        (5,'Salão de festas','14:00','22:00');
