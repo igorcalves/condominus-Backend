@@ -27,6 +27,7 @@ public class VisitorsController {
     @PostMapping
     public ResponseEntity<String> createVisitorByCpfUser(@RequestBody VisitorsDTO data){
         return ResponseEntity.ok(service.createVisitorByCpfUser(data));
+        
     }
     
 

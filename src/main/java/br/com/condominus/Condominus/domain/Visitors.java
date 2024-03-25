@@ -9,7 +9,10 @@ import java.time.LocalDate;
 
 import br.com.condominus.Condominus.domain.dto.VisitorsDTO;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "VISITORS")
 @EqualsAndHashCode(of="id")
 @Entity
