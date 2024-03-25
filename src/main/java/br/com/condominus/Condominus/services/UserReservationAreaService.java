@@ -1,5 +1,6 @@
 package br.com.condominus.Condominus.services;
 
+import br.com.condominus.Condominus.domain.dto.ReservationReturn;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,8 @@ import br.com.condominus.Condominus.exceptions.exceptionModel.ResourceNotFound;
 import br.com.condominus.Condominus.repositories.AreasRepository;
 import br.com.condominus.Condominus.repositories.UserRepository;
 import br.com.condominus.Condominus.repositories.UserReservationsAreasRespository;
+
+import java.util.List;
 
 
 @Service
@@ -38,11 +41,17 @@ public class UserReservationAreaService {
         }catch(Exception e){
              e.printStackTrace();
         }   
-        return "Reserva Criada com Sucesso" + "A area: " + area.getName() 
+        return "Reserva Criada com Sucesso" + " A area: " + area.getName()
             + " esta agendado do horario " + data.startOfScheduling() 
             +" ate: " + data.endOfScheduling()
             +" para " + entity.getName();
 
+    }
+
+    public List<ReservationReturn> findAllReservations(String cpf){
+        User entity = userRepository.findByCpf(cpf);
+        if(entity ==null) throw new ResourceNotFound("Cpf Não Encontrado");
+        return reservationRepository.findAllReservationsById(entity.getId());
     }
 
     
