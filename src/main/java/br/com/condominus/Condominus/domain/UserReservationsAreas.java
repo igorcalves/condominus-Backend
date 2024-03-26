@@ -25,8 +25,8 @@ import lombok.Setter;
 public class UserReservationsAreas {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
     private LocalDateTime startOfScheduling;
     private LocalDateTime endOfScheduling;
 
