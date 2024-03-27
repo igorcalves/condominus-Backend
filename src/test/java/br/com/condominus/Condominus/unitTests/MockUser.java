@@ -50,7 +50,7 @@ public class MockUser {
         user.setRole(Role.USER);
         user.setPassword("password Test" + n);
         user.setEmail("email Test" + n);
-        user.setBirthDay(LocalDate.of(n,n,n));
+        user.setBirthDay(LocalDate.of(1,1,1));
         user.setCondominiumPrice(new BigDecimal(n.toString()));
         user.setApartmentNumber("a" +n);
         user.setEnabled(true);

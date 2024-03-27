@@ -29,7 +29,6 @@ public class UserReservationsAreas {
     private String id;
     private LocalDateTime startOfScheduling;
     private LocalDateTime endOfScheduling;
-
     @ManyToOne()
     @JoinColumn(name = "user_id")
     private User user;

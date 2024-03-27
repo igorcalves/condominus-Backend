@@ -26,9 +26,14 @@ public class UserReservationAreaController {
         return ResponseEntity.ok(service.createReservation(data));
     }
     @Operation(summary = "Get all reservations for a user by cpf via RequestParam")
-    @GetMapping
+    @GetMapping("cpf")
     public ResponseEntity<List<ReservationReturn>> findAll(@RequestParam String cpf){
         return ResponseEntity.ok(service.findAllReservations(cpf));
+    }
+
+    @GetMapping("")
+    public ResponseEntity<?> t(){
+        return  ResponseEntity.ok(service.t());
     }
     
 }

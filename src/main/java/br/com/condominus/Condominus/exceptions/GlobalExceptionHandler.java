@@ -1,9 +1,6 @@
 package br.com.condominus.Condominus.exceptions;
 
-import br.com.condominus.Condominus.exceptions.exceptionModel.EmailAlreadyExistsException;
-import br.com.condominus.Condominus.exceptions.exceptionModel.ExceptionResponse;
-import br.com.condominus.Condominus.exceptions.exceptionModel.UserAlreadyExistsException;
-import br.com.condominus.Condominus.exceptions.exceptionModel.ResourceNotFound;
+import br.com.condominus.Condominus.exceptions.exceptionModel.*;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -46,6 +43,15 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 new ExceptionResponse(LocalDateTime.now(),ex.getMessage(),request.getDescription(false));
         return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(InvalidTimeForSchedule.class)
+    public final ResponseEntity<ExceptionResponse> invalidTimeForSchedule(Exception ex, WebRequest request){
+        ExceptionResponse exceptionResponse =
+                new ExceptionResponse(LocalDateTime.now(),ex.getMessage(),request.getDescription(false));
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.CONFLICT);
+    }
+
+
 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {

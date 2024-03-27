@@ -32,8 +32,8 @@ public class VisitorsController {
     
 
     @GetMapping("/cpfuser")
-    public ResponseEntity<List<VisitorsDTO>> findAllVisitorsByCpfUser(@RequestBody CpfDTO data){
-       return  ResponseEntity.ok(service.findAllVisitorsByCpfUser(data.cpf()));
+    public ResponseEntity<List<VisitorsDTO>> findAllVisitorsByCpfUser(@RequestParam String cpf){
+       return  ResponseEntity.ok(service.findAllVisitorsByCpfUser(cpf));
     }
 
     @GetMapping("/name")
@@ -49,8 +49,8 @@ public class VisitorsController {
 
 
     @DeleteMapping()
-    public ResponseEntity<String> deleteVisitorById(@RequestBody CpfDTO data){
-        return ResponseEntity.ok(service.deleteVisitorByCpf(data.cpf()));
+    public ResponseEntity<String> deleteVisitorById(@RequestParam String  data){
+        return ResponseEntity.ok(service.deleteVisitorByCpf(data));
     }
     
 }
