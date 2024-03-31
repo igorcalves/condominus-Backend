@@ -3,6 +3,7 @@ package br.com.condominus.Condominus.controllers;
 import br.com.condominus.Condominus.domain.dto.CpfDTO;
 import br.com.condominus.Condominus.domain.dto.UserDTO;
 import br.com.condominus.Condominus.services.UserService;
+import jakarta.validation.Valid;
 import br.com.condominus.Condominus.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class UserController {
     private UserService service;
 
     @PostMapping
-    public ResponseEntity<String> createUser(@RequestBody @Validated User user){
+    public ResponseEntity<String> createUser(@RequestBody @Valid User user){
 
     return ResponseEntity.ok().body(service.createUser(user));
     }

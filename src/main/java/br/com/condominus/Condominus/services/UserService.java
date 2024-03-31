@@ -8,6 +8,8 @@ import br.com.condominus.Condominus.exceptions.exceptionModel.ResourceNotFound;
 import br.com.condominus.Condominus.mapper.ModelMapperConverter;
 import br.com.condominus.Condominus.repositories.UserRepository;
 import jakarta.transaction.Transactional;
+import jakarta.validation.ConstraintViolationException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -26,7 +28,7 @@ public class UserService {
             repository.save(user);
             return "Usuario Criado com sucesso";
         }catch (DataIntegrityViolationException e){
-            throw new UserAlreadyExistsException("Você está tentando inserir dados repetidos" );
+            throw new UserAlreadyExistsException("Você está tentando inserir dados repetidos ");
         }
 
     }
