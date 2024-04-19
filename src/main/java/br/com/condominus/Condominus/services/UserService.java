@@ -33,8 +33,11 @@ public class UserService {
 
     }
     public List<UserDTO> findAll(){
-        return ModelMapperConverter.parseListObjects(repository.findAll(),UserDTO.class);
+        return ModelMapperConverter.parseListObjects(repository.findAllEnabledUSer(),UserDTO.class);
     }
+
+
+
     public UserDTO findByCPF(String cpf) {
             final User entity = repository.findByCpf(cpf).orElseThrow(()-> new ResourceNotFound("Usuario não econtrado"));
             return ModelMapperConverter.parseObject(entity,UserDTO.class);

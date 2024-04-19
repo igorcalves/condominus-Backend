@@ -17,7 +17,9 @@ public class UserDTO {
     private String phone;
     private Role role;
     private String email;
+    private String password;
     private LocalDate birthDay;
     private BigDecimal condominiumPrice;
     private String apartmentNumber;
+    private Boolean enabled;
 }

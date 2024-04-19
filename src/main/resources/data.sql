@@ -1,6 +1,6 @@
 INSERT INTO USERS (ID, NAME, CPF, BIRTH_DAY, EMAIL, ENABLED, PASSWORD, PHONE, ROLE, CONDOMINIUM_PRICE, APARTMENT_NUMBER)
-VALUES ('df692b2b-da0f-4c2a-897a-dba7cead677e', 'Maria Luiza Porto Lima', '92449318690', '1975-07-14',
-        'Maria LuizaP1880@outlook.com', TRUE, '$2a$10$2yUouMI5tyVZHDNz0dIiyuxQF2BnX.Kmt/Q6D5W/FBKs/3s/ZOeKe',
+VALUES ('df692b2b-da0f-4c2a-897a-dba7cead677e', 'Igor Alves', '47776777777', '1975-07-14',
+        'IgorAlves@outlook.com', TRUE, '4044',
         '+55 (071) 0363 1073', 0, 1160.14, '0A'),
        ('a4104a7f-7769-4933-85f5-28f3933624ce', 'Davi Lucas Castro Moura', '45681326497', '1971-10-06',
         'Davi LucasC1260@live.com', TRUE, '$2a$10$2yUouMI5tyVZHDNz0dIiyuxQF2BnX.Kmt/Q6D5W/FBKs/3s/ZOeKe',
