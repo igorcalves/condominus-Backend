@@ -43,7 +43,7 @@ private String cpf;
 @Email(message = "Formato de email inválido")
 private String email;
 
-@ManyToOne(fetch = FetchType.LAZY)
+@ManyToOne(fetch = FetchType.EAGER)
 @JoinColumn(name = "id_user", referencedColumnName = "id")
 @NotNull(message = "O campo 'user' é obrigatório")
 private User user;

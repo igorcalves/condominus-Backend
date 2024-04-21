@@ -16,9 +16,8 @@ import java.util.UUID;
 public interface UserRepository extends JpaRepository<User, String> {
 
     Optional<User> findByCpf(String cpf);
+
     @Modifying
-
-
     @Query(value = "UPDATE User u SET u.enabled = false where u.cpf =:cpf")
     void disableUser(@Param("cpf") String cpf);
 

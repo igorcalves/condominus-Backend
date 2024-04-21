@@ -2,6 +2,7 @@ package br.com.condominus.Condominus.domain.dto;
 
 import java.time.LocalDate;
 
+import br.com.condominus.Condominus.domain.User;
 import lombok.Data;
 
 
@@ -14,4 +15,5 @@ public class VisitorsDTO {
     private LocalDate registrationDate;
     private String phone;
     private String cpfUser;
+    private UserDTO user;
 }
