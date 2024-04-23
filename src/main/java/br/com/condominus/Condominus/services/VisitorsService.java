@@ -60,11 +60,11 @@ public class VisitorsService {
         return "A pessoa " + entity.getName() + " não faz mais parte da lista de visitantes";
     }
 
-    public List<VisitorsDTO> findVisitorByName(String name){
+    public List<VisitorsDTO> findVisitorByName(String name) {
         List<Visitors> entity = visitorsrepository.findVisitorsByName(name);
-        List<VisitorsDTO> data = ModelMapperConverter.parseListObjects(entity,VisitorsDTO.class);
-        return data;
-        
+        if(entity.isEmpty()) throw  new ResourceNotFound("O nome não corresponde a nenhum visitante");
+        return ModelMapperConverter.parseListObjects(entity, VisitorsDTO.class);
+
     }
 
 

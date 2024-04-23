@@ -134,7 +134,7 @@ VALUES ('df692b2b-da0f-4c2a-897a-dba7cead677e', 'Igor Alves', '47776777777', '19
        ('f124ddbb-9403-42b2-b0d1-b2a1f732e663', 'Felipe Fogaça Costa', '44937717049', '1989-10-08',
         'FelipeF1099@live.com', TRUE, '$2a$10$2yUouMI5tyVZHDNz0dIiyuxQF2BnX.Kmt/Q6D5W/FBKs/3s/ZOeKe', '0800 069 7437',
         0, 1495.31, '44B'),
-       ('eb80212c-f399-4357-86d6-c4aa6777327c', 'Giovanna Freitas Sales', '48663959230', '1970-10-06',
+       ('eb80212c-f399-4357-86d6-c4aa6777327c', 'Giovanna Freitas Sales', '123', '1970-10-06',
         'GiovannaF1086@hotmail.com', TRUE, '$2a$10$2yUouMI5tyVZHDNz0dIiyuxQF2BnX.Kmt/Q6D5W/FBKs/3s/ZOeKe',
         '21 2727-3145', 0, 1918.33, '45C'),
        ('ae123d8c-c638-41d5-8f2d-ec149d3db7a6', 'Milena da Cruz Almeida', '48265141157', '1981-09-21',
@@ -183,7 +183,7 @@ VALUES ('df692b2b-da0f-4c2a-897a-dba7cead677e', 'Igor Alves', '47776777777', '19
 
 
 INSERT INTO VISITORS(ID, CPF, NAME, BIRTH_DAY, EMAIL, PHONE, REGISTRATION_DATE, ID_USER)
-VALUES ('e222de98-63de-44aa-90b1-68a20406edce', '83043456920', 'Valentina Farias Farias', '1993-01-22',
+VALUES ('e222de98-63de-44aa-90b1-68a20406edce', '123', 'Valentina Farias Farias', '1993-01-22',
         'ValentinaF1386@live.com', '84 6682 1279', '2022-06-23', 'df692b2b-da0f-4c2a-897a-dba7cead677e'),
        ('5c818b4a-3136-436c-be32-b9c681b1d1e1', '17056104479', 'Amanda da Rocha Duarte', '1994-01-08',
         'AmandaD1705@hotmail.com', '81 8168-5786', '2023-02-20', 'df692b2b-da0f-4c2a-897a-dba7cead677e'),
