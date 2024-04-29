@@ -49,8 +49,8 @@ public class VisitorsController {
 
 
     @DeleteMapping()
-    public ResponseEntity<String> deleteVisitorById(@RequestParam String  data){
-        return ResponseEntity.ok(service.deleteVisitorByCpf(data));
+    public ResponseEntity<String> deleteVisitorById(@RequestParam String  cpf){
+        return ResponseEntity.ok(service.deleteVisitorByCpf(cpf));
     }
     
 }
