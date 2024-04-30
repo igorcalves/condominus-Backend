@@ -69,7 +69,7 @@ public class VisitorsService {
 
 
     public String updateVisitorByCpf(VisitorsDTO data) {
-        Visitors entity = visitorsrepository.findByCpf(data.getCpfUser()).orElseThrow(() -> new ResourceNotFound("O cpf não corresponde a nenhum visitante"));
+        Visitors entity = visitorsrepository.findByCpf(data.getCpf()).orElseThrow(() -> new ResourceNotFound("O cpf não corresponde a nenhum visitante"));
         User user =userRepository.findByCpf(data.getCpfUser()).orElseThrow(() ->  new ResourceNotFound("Cpf Não encontrado"));
            try {
             Visitors newEntity = new Visitors(data, entity,user);

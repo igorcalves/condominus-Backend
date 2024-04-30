@@ -5,7 +5,7 @@ VALUES ('df692b2b-da0f-4c2a-897a-dba7cead677e', 'Igor Alves', '47776777777', '19
        ('a4104a7f-7769-4933-85f5-28f3933624ce', 'Davi Lucas Castro Moura', '45681326497', '1971-10-06',
         'Davi LucasC1260@live.com', TRUE, '$2a$10$2yUouMI5tyVZHDNz0dIiyuxQF2BnX.Kmt/Q6D5W/FBKs/3s/ZOeKe',
         '+55 84 5062 7229', 0, 1933.57, '1B'),
-       ('b8e70dda-0e66-42f5-823f-1da2a36e6915', 'Emilly Jesus Cardoso', '05337180827', '1972-03-22',
+       ('b8e70dda-0e66-42f5-823f-1da2a36e6915', 'Emilly Jesus Cardoso', '1234', '1972-03-22',
         'EmillyJ1748@live.com', TRUE, '$2a$10$2yUouMI5tyVZHDNz0dIiyuxQF2BnX.Kmt/Q6D5W/FBKs/3s/ZOeKe',
         '+55 (061) 3596 5773', 0, 1583.78, '2B'),
        ('b2261968-8eaf-40a5-8d2f-965dd3bb54e7', 'Luiz Felipe Almeida Nogueira', '77285474029', '1987-06-24',
