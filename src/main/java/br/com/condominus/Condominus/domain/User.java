@@ -77,12 +77,12 @@ public class User {
         this.name = dTO.getName();
         this.phone = dTO.getPhone();
         this.cpf = oldUser.getCpf();
-        this.role = oldUser.getRole();
+        this.role = dTO.getRole();
         this.password = oldUser.getPassword();
-        this.email = oldUser.getEmail();
+        this.email = dTO.getEmail();
         this.birthDay = dTO.getBirthDay();
-        this.condominiumPrice = oldUser.getCondominiumPrice();
-        this.apartmentNumber = oldUser.getApartmentNumber();
+        this.condominiumPrice = dTO.getCondominiumPrice();
+        this.apartmentNumber = dTO.getApartmentNumber();
     }
 
 }

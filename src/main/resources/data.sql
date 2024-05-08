@@ -1,7 +1,7 @@
 INSERT INTO USERS (ID, NAME, CPF, BIRTH_DAY, EMAIL, ENABLED, PASSWORD, PHONE, ROLE, CONDOMINIUM_PRICE, APARTMENT_NUMBER)
 VALUES ('df692b2b-da0f-4c2a-897a-dba7cead677e', 'Igor Alves', '47776777777', '1975-07-14',
         'IgorAlves@outlook.com', TRUE, '4044',
-        '+55 (071) 0363 1073', 0, 1160.14, '0A'),
+        '+55 (071) 0363 1073', 1, 1160.14, '0A'),
        ('a4104a7f-7769-4933-85f5-28f3933624ce', 'Davi Lucas Castro Moura', '45681326497', '1971-10-06',
         'Davi LucasC1260@live.com', TRUE, '$2a$10$2yUouMI5tyVZHDNz0dIiyuxQF2BnX.Kmt/Q6D5W/FBKs/3s/ZOeKe',
         '+55 84 5062 7229', 0, 1933.57, '1B'),
@@ -11,7 +11,7 @@ VALUES ('df692b2b-da0f-4c2a-897a-dba7cead677e', 'Igor Alves', '47776777777', '19
        ('b2261968-8eaf-40a5-8d2f-965dd3bb54e7', 'Luiz Felipe Almeida Nogueira', '77285474029', '1987-06-24',
         'Luiz FelipeA1333@hotmail.com', TRUE, '$2a$10$2yUouMI5tyVZHDNz0dIiyuxQF2BnX.Kmt/Q6D5W/FBKs/3s/ZOeKe',
         '71 3203-3931', 0, 1904.97, '3C'),
-       ('1c17fbe1-c45c-4686-80c4-a18a5007477c', 'Calebe Cavalcanti Oliveira', '78504872572', '1975-10-19',
+       ('1c17fbe1-c45c-4686-80c4-a18a5007477c', 'Calebe Cavalcanti Oliveira', 'c', '1975-10-19',
         'CalebeC1774@outlook.com', TRUE, '$2a$10$2yUouMI5tyVZHDNz0dIiyuxQF2BnX.Kmt/Q6D5W/FBKs/3s/ZOeKe',
         '+55 (071) 8816 1593', 0, 1957.84, '4A'),
        ('940db052-4c99-426b-9c33-35a5ed8eba7d', 'Isabella Ferreira da Cunha', '49292337556', '1975-04-23',
