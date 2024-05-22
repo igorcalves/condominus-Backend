@@ -67,7 +67,7 @@ public class UserService {
 
     @Transactional
     public String disableUserByCpf(String cpf){
-        final User entity = repository.findByCpf(cpf).orElseThrow(()-> new ResourceNotFound("Usuario não econtrado"));
+        repository.findByCpf(cpf).orElseThrow(()-> new ResourceNotFound("Usuario não econtrado"));
         repository.disableUser(cpf);
         return "Usuario Desabilitado";
     }

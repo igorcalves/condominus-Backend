@@ -30,7 +30,7 @@ public class User implements UserDetails {
     @NotNull(message = "O campo 'name' é obrigatório")
     private String name;
     @Column(nullable = false)
-    @NotNull(message = "O campo 'name' é obrigatório")
+    @NotNull(message = "O campo 'login' é obrigatório")
     private String login;
     @NotNull(message = "O campo 'phone' é obrigatório")
     @Column(nullable = false)
@@ -83,6 +83,7 @@ public class User implements UserDetails {
 
     public User(UserDTO dTO, User oldUser) {
         this.id = oldUser.id;
+        this.login = oldUser.getLogin();
         this.name = dTO.getName();
         this.phone = dTO.getPhone();
         this.cpf = oldUser.getCpf();
@@ -122,6 +123,6 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return enabled;
     }
 }

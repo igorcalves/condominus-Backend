@@ -3,7 +3,6 @@ package br.com.condominus.Condominus.controllers;
 import br.com.condominus.Condominus.configurations.security.TokenService;
 import br.com.condominus.Condominus.domain.User;
 import br.com.condominus.Condominus.domain.dto.AuthenticationDTO;
-import br.com.condominus.Condominus.domain.dto.LoginResponseDTO;
 import br.com.condominus.Condominus.domain.dto.UserDTO;
 import br.com.condominus.Condominus.mapper.ModelMapperConverter;
 import br.com.condominus.Condominus.repositories.UserRepository;
@@ -14,7 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
