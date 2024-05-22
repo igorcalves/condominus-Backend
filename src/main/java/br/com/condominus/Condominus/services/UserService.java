@@ -12,6 +12,7 @@ import jakarta.validation.ConstraintViolationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,8 +26,12 @@ public class UserService {
     private UserRepository repository;
     public String createUser(User user){
         try {
-            repository.save(user);
-            return "Usuario Criado com sucesso";
+                String encryptPassword = new BCryptPasswordEncoder().encode(user.getPassword());
+                user.setPassword(encryptPassword);
+                repository.save(user);
+                return "Usuario Criado com sucesso";
+
+
         }catch (DataIntegrityViolationException e){
             throw new UserAlreadyExistsException("Você está tentando inserir dados repetidos ");
         }

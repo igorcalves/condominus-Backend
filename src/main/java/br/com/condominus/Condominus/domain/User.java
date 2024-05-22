@@ -7,9 +7,14 @@ import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,13 +22,16 @@ import java.time.LocalDate;
 @Table(name = "USERS")
 @EqualsAndHashCode(of = "id")
 @Entity
-public class User {
+public class User implements UserDetails {
     @Id()
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     @Column(nullable = false)
     @NotNull(message = "O campo 'name' é obrigatório")
     private String name;
+    @Column(nullable = false)
+    @NotNull(message = "O campo 'name' é obrigatório")
+    private String login;
     @NotNull(message = "O campo 'phone' é obrigatório")
     @Column(nullable = false)
     private String phone;
@@ -52,7 +60,7 @@ public class User {
     private String apartmentNumber;
     private Boolean enabled = true;
 
-    public User(String id, String name, String phone, String cpf,
+    public User(String id,String name,String login, String phone, String cpf,
             Role role,
             String password,
             String email,
@@ -61,6 +69,7 @@ public class User {
             String apartmentNumber, Boolean enabled) {
         this.id = id;
         this.name = name;
+        this.login = login;
         this.phone = phone;
         this.cpf = cpf;
         this.role = role;
@@ -85,4 +94,34 @@ public class User {
         this.apartmentNumber = dTO.getApartmentNumber();
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        if(this.role == Role.ADM) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
+        else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+    }
+
+    @Override
+    public String getUsername() {
+        return login;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }
